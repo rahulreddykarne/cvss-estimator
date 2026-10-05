@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cvss-estimator"
+version = "0.1.0"
+description = "Compute CVSS v3.1 base scores and estimate a full vector from source-to-sink evidence flags — with no runtime dependencies."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "krc7169", email = "krc7169@gmail.com" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/rahulreddykarne/cvss-estimator"
+Repository = "https://github.com/rahulreddykarne/cvss-estimator"
+Issues = "https://github.com/rahulreddykarne/cvss-estimator/issues"
+Changelog = "https://github.com/rahulreddykarne/cvss-estimator/releases"
+
+[project.scripts]
+cvss-estimator = "cvss_estimator.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build", "twine"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cvss_estimator"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/cvss_estimator", "README.md", "LICENSE", "tests"]
